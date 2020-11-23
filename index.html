@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Making a site!</title>
-  </head>
-  <body>
-<p>ho</p>
-<script src="vue.global.js"></script>
-  <script src="index.js" ></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="index.css">
+  <title>Making a site!</title>
+</head>
+
+<body>
+
+  <div class="nav-bar"></div>
+
+  <div id="app">
+    <div class="product">
+
+      <div class="product-image">
+        <a :href="link">
+          <img v-bind:src="image" alt="">
+        </a>
+      </div>
+
+      <div class="product-info">
+
+        <h1>{{ product }}</h1>
+        <p v-if="inventory > 10">beschikbaar</p>
+        <p v-else-if="inventory<=10 && inventory >0">bijna uitverkocht</p>
+        <p v-else> niet beschikbaar</p>
+
+        <ul>
+          <li v-for="detail in details">{{detail}}</li>
+        </ul>
+
+          <div class="" v-for="variant in variants" :key="variant.variantId">
+            <p @mouseover="updateProduct(variant.variantImage)">{{variant.variantColor}}</p>
+          </div>
+
+          <div class="lijst" v-for="size in size" :key="size.sizeId">
+            <p> {{text}}  {{size.sizeList}}</p>
+          </div>
+
+            <button type="button" name="button" v-on:click = "addtoCart">Click me</button>
+
+            <div class="cart">
+              <p>cart({{cart}})</p>
+            </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com//vue"></script>
+  <script src="index.js"></script>
+</body>
+
 </html>
