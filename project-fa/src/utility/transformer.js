@@ -1,19 +1,18 @@
-
 //zoeken naar het year in de object van RDW als die true is dan return hij die waarde
-function findYearIndex(yearItem, array) {
-  return array.findIndex((item) => yearItem.year === item.year);
+export function findYearIndex(yearItem, array) {
+  return array.findIndex(item => yearItem.year === item.year);
 }
 
 // samen met gijs gemaakt tellen van de jaartallen en kleuren per jaartal
-function count(array) {
+export function count(array) {
   // Create a new array called yearlyData
   const yearlyData = [];
 
   // Loop through all our items in our json fetch, they all have their own individual year & color value
   // We need to assign them to the right year by finding their index's
-  array.forEach((item) => {
+  array.forEach(item => {
     //destructuring const voor overzichtlijkheid.
-    const { color, year } = item;
+    // const { color, year } = item;
 
     // Find index of this year, if it's -1 make a new object.
     const yearIndex = findYearIndex(item, yearlyData);
@@ -25,9 +24,9 @@ function count(array) {
         data: [
           {
             color: item.color,
-            value: 1,
-          },
-        ],
+            value: 1
+          }
+        ]
       });
     } else {
       // Add this item's data to the corrosponding year
@@ -35,13 +34,13 @@ function count(array) {
       // Check if the color exists, if yes add up one to the value or otherwise create new object with value 1
       const colorData = yearlyData[yearIndex].data;
       const colorIndexInYear = colorData.findIndex(
-        (color) => color.color === item.color
+        color => color.color === item.color
       );
 
       if (colorIndexInYear < 0) {
         colorData.push({
           color: item.color,
-          value: 1,
+          value: 1
         });
       } else {
         colorData[colorIndexInYear].value++;
@@ -53,12 +52,12 @@ function count(array) {
 }
 
 //hele dataset filteren en in een array zetten
-function filterenhelearray(data) {
-  return data.map((uitkomst) => uitkomst);
+export function filterenhelearray(data) {
+  return data.map(uitkomst => uitkomst);
 }
 
 //sorteren op jaar, door de strings naar numbers te veranderen || samen met gijs gemaakt.
-function sortByYear(a, b) {
+export function sortByYear(a, b) {
   const yearA = Number(a.year);
   const yearB = Number(b.year);
 

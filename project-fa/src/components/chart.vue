@@ -1,118 +1,117 @@
 <template>
-	<div id="chart-wrapper">
-		<svg id="my_dataviz"></svg>
-	</div>
+  <div id="chart-wrapper">
+    <svg id="my_dataviz"></svg>
+  </div>
 </template>
 
 <script>
- export default {
-	 name: "Chart",
-	 props: ['chartData'],
-	 data() {
-		 return {
-			 svgElement: Object,
-			 xScale: Function,
-			 yScale: Function,
-			 xAxis: Function,
-			 yAxis: Function,
-			 width: Number,
-			 height: Number,
-		 }
-	 },
-	 mounted() {
-		 let data = this.chartData;
-		 this.svgElement = d3.select("#my_dataviz")
+import * as d3 from "d3";
+export default {
+  name: "Chart",
+  props: ["chartData"],
+  data() {
+    return {
+      svgElement: Object,
+      xScale: Function,
+      yScale: Function,
+      xAxis: Function,
+      yAxis: Function,
+      width: Number,
+      height: Number
+    };
+  },
+  mounted() {
+    let data2 = this.chartData;
+    this.svgElement = d3.select("#my_dataviz");
 
-		 const margin = { top: 30, right: 30, bottom: 70, left: 60 },
-			 width = 560 - margin.left - margin.right,
-			 height = 400 - margin.top - margin.bottom;
+    console.log(data2.color);
 
-			 let svg = d3
-				 .select('#my_dataviz')
-				 .append('svg')
-				 .attr('width', width + margin.left + margin.right)
-				 .attr('height', height + margin.top + margin.bottom)
-				 .append('g')
-				 .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+    const margin = { top: 30, right: 30, bottom: 70, left: 60 },
+      width = 560 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
 
-				 // Maken X As
-			  let xScale = d3
-				.scaleBand()
-				.range([0, width])
-				.padding(0.2);
+    let svg = d3
+      .select("#my_dataviz")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-			  let xAxis = svg
-				.append('g')
-				.attr('transform', 'translate(0,' + height + ')');
+    // Maken X As
+    let xScale = d3
+      .scaleBand()
+      .range([0, width])
+      .padding(0.2);
 
-			   // maken Y As
-			  let yScale = d3
-				.scaleLinear()
-				.range([height, 0]);
+    let xAxis = svg
+      .append("g")
+      .attr("transform", "translate(0," + height + ")");
 
-			  let yAxis = svg
-				.append('g')
-				.attr('class', 'myYaxis');
+    // maken Y As
+    let yScale = d3.scaleLinear().range([height, 0]);
 
-				this.svgElement = svg;
-				this.xScale = xScale;
-				this.yScale = yScale;
-				this.xAxis = xAxis;
-				this.yAxis = yAxis;
-				this.width = width;
-				this.height = height;
+    let yAxis = svg.append("g").attr("class", "myYaxis");
 
-	 },
-	 updated() {
+    this.svgElement = svg;
+    this.xScale = xScale;
+    this.yScale = yScale;
+    this.xAxis = xAxis;
+    this.yAxis = yAxis;
+    this.width = width;
+    this.height = height;
 
-		   // functie maken die de data update op basis van de gegeven data
-		   //---------------------------------------------------------------------------------------------------
-		     let data = dataJaareen.data;
+    // functie maken die de data update op basis van de gegeven data
+    //---------------------------------------------------------------------------------------------------
+    function update(dataJaareen) {
+      let data = dataJaareen.data;
 
-		     // Update the X axis
-		     this.xScale.domain(
-		       data.map(function (d) {
-		         return d.color;
-		       })
-		     );
-		     this.xAxis.call(d3.axisBottom(this.xScale));
+      console.log(data);
+      // Update the X axis
+      this.xScale.domain(
+        data.map(function(d) {
+          return d.color;
+        })
+      );
+      this.xAxis.call(d3.axisBottom(this.xScale));
 
-		     // Update the Y axis
-		     this.yScale.domain([
-		       0,
-		       d3.max(data, function (d) {
-		         return d.value;
-		       }),
-		     ]);
-		     this.yAxis.transition().duration(1000).call(d3.axisLeft(this.yScale));
+      // Update the Y axis
+      this.yScale.domain([
+        0,
+        d3.max(data, function(d) {
+          return d.value;
+        })
+      ]);
+      this.yAxis
+        .transition()
+        .duration(1000)
+        .call(d3.axisLeft(this.yScale));
 
-		     // maak nieuwe let
-		     let change = this.svgElement.selectAll('rect').data(this.chartData);
-		 //met merge() combineer je de UPDATE en ENTER samen zodat het een geheel is
-		     change
-		       .enter()
-		       .append('rect') // Add a new rect for each new elements
-		       .merge(change) // get the already existing elements as well
-		       .transition() // and apply changes to all of them
-		       .duration(1000)
-		       .attr('x', function (d) {
-		         return this.xScale(d.color);
-		       })
-		       .attr('y', function (d) {
-		         return this.yScale(d.value);
-		       })
-		       .attr('width', this.xScale.bandwidth())
-		       .attr('height', function (d) {
-		         return this.height - this.yScale(d.value);
-		       })
-		       .attr('fill', '#69b3a2');
+      // maak nieuwe let
+      let change = this.svgElement.selectAll("rect").data(this.chartData);
+      //met merge() combineer je de UPDATE en ENTER samen zodat het een geheel is
+      change
+        .enter()
+        .append("rect") // Add a new rect for each new elements
+        .merge(change) // get the already existing elements as well
+        .transition() // and apply changes to all of them
+        .duration(1000)
+        .attr("x", function(d) {
+          return this.xScale(d.color);
+        })
+        .attr("y", function(d) {
+          return this.yScale(d.value);
+        })
+        .attr("width", this.xScale.bandwidth())
+        .attr("height", function(d) {
+          return this.height - this.yScale(d.value);
+        })
+        .attr("fill", "#69b3a2");
 
-		     // If less group in the new dataset, I delete the ones not in use anymore
-		     change.exit().remove();
-
-	 }
- };
-
-
-
+      // If less group in the new dataset, I delete the ones not in use anymore
+      change.exit().remove();
+    }
+    update(data2);
+  }
+};
 </script>
