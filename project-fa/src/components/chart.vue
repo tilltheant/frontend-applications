@@ -24,6 +24,7 @@ export default {
     let data2 = this.chartData;
     this.svgElement = d3.select("#my_dataviz");
 
+    console.log(this.chartData);
     const margin = { top: 30, right: 30, bottom: 70, left: 60 },
       width = 560 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;

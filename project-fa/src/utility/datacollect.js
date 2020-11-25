@@ -5,7 +5,7 @@ export default function() {
   const kentekenautos =
     "https://opendata.rdw.nl/resource/m9d7-ebf2.json?$limit=10000";
 
-  getData().then(resultaat => {
+  return getData().then(resultaat => {
     const jaardata = count(resultaat);
     const sortedData = jaardata.sort(sortByYear);
     return sortedData;
