@@ -24,8 +24,6 @@ export default {
     let data2 = this.chartData;
     this.svgElement = d3.select("#my_dataviz");
 
-    console.log(data2.color);
-
     const margin = { top: 30, right: 30, bottom: 70, left: 60 },
       width = 560 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
@@ -64,9 +62,8 @@ export default {
     // functie maken die de data update op basis van de gegeven data
     //---------------------------------------------------------------------------------------------------
     function update(dataJaareen) {
-      let data = dataJaareen.data;
+      let data = dataJaareen;
 
-      console.log(data);
       // Update the X axis
       this.xScale.domain(
         data.map(function(d) {
