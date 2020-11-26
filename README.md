@@ -1,2 +1,24 @@
-# frontend-applications
-Project gericht op data story's, waarin ik werk met vue. Voor de Volkskrant.
+# project-fa
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
