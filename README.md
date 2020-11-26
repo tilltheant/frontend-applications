@@ -2,6 +2,8 @@
 
 In deze repo kan je opdrachten vinden die ik gemaakt via deze link [Wiki](https://github.com/tilltheant/frontend-applications/wiki)
 
+De website kan je vinden via mijn netlify link [Mijn website](https://frontend-applications-tilltheant.netlify.app/)
+
 
 ## De Opdracht
 
