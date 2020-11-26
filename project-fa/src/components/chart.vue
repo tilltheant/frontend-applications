@@ -4,14 +4,17 @@
   </div>
 </template>
 
-<!-- bron: Code les van Robert -->
+<!-- bron: Code les van Robert met mijn eigen tweaks-->
 <script>
 import * as d3 from "d3";
-// Vue export logic
+
+// Vue exporteren
 export default {
   name: "Chart",
   props: ["chartData"],
   data() {
+    //de meegegeven variabele moeten een object, functie of nummer zijn zodat er minder snel een
+    //fout kan komen tijdens de data transfer
     return {
       svgElement: Object,
       x: Function,
@@ -20,6 +23,7 @@ export default {
       height: Number
     };
   },
+  //de visualisatie maken met gekregen data
   mounted() {
     let data = this.chartData.data;
     console.log(this.chartData.data);
@@ -102,6 +106,7 @@ export default {
       .style("font-weight", "600")
       .text("Meest verkochte auto's per kleur in Nederland");
   },
+  //updaten van de data die via een onclick wordt meegegeven
   updated() {
     console.log("Updated chart");
     console.log(this.chartData);
@@ -132,6 +137,12 @@ export default {
   }
 };
 </script>
+
+<style media="screen">
+rect {
+  fill: black;
+}
+</style>
 
 <!-- <template>
   <div id="chart-wrapper">
