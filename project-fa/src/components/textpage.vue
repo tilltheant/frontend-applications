@@ -9,6 +9,7 @@
       gemiddeld 0,9 personenauto per huishouden. 9 van de 10 huishoudens heeft
       dus een personenauto dat zijn er veel!
     </p>
+    <p class="bron">Bron: AD</p>
     <p></p>
     <div class="imgboxcars">
       <img class="cars" src="../assets/carsp2.svg" />
@@ -36,6 +37,11 @@ h1 {
   text-align: left;
   padding-right: 20%;
   padding-bottom: 5%;
+}
+
+.bron {
+  font-size: 12px;
+  font-style: italic;
 }
 
 .cars {
