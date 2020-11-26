@@ -1,29 +1,17 @@
+in deze repo kan je opdrachten vinden die ik gemaakt via deze link [Wiki](https://github.com/tilltheant/frontend-applications/wiki)
+
 # project-fa
 
-## Project setup
+Voor de volkskrant heb ik als opdracht om met het onderwerp "De auto in de stad" een datavisualisatie te maken die interessant is, maar ook nieuwe inzichten bied die De Volkskrant weer kan gebruiken om een artikel over te schrijven. Deze kan worden gepubliseerd en wellicht gebruikt worden om achter andere inzichten te komen.
 
-```
-npm install
-```
+<a href="https://ibb.co/C8xYnTY"><img src="https://i.ibb.co/h9p4Kt4/1200px-Volkskrant-svg.png" alt="1200px-Volkskrant-svg" border="0"></a>
 
-### Compiles and hot-reloads for development
+## De Data die ik gebruik.
+De data die ik gebruik is afkomstig van de RDW website.
+Mijn onderzoeksvraag: Zijn er overeenkomsten tussen dure auto's en de kleur ervan in vergelijking met auto's die goedkoper zijn?
 
-```
-npm run serve
-```
 
-### Compiles and minifies for production
+## De Applicatie
+In de aplicatie kan je een artikel vinden die te maken heeft met de auto in de stad, ik heb gekozen om het te doen over de kleuren van de auto's die worden verkocht per jaar. Hier onder vind je een voorbeeld van de barchart die ik heb gemaakt.
 
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<a href="https://ibb.co/zFFd94s"><img src="https://i.ibb.co/8bbkv7M/vis.jpg" alt="vis" border="0"></a>
