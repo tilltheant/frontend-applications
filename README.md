@@ -1,11 +1,5 @@
 in deze repo kan je opdrachten vinden die ik gemaakt via deze link [Wiki](https://github.com/tilltheant/frontend-applications/wiki)
 
-# project-fa
-
-In de aplicatie kan je een artikel vinden die te maken heeft met de auto in de stad, ik heb gekozen om het te doen over de kleuren van de auto's die worden verkocht per jaar. Hier onder vind je een voorbeeld van de barchart die ik heb gemaakt.
-
-<a href="https://ibb.co/zFFd94s"><img src="https://i.ibb.co/8bbkv7M/vis.jpg" alt="vis" border="0"></a>
-
 
 ## De Opdracht
 
@@ -19,7 +13,7 @@ Mijn onderzoeksvraag: Zijn er overeenkomsten tussen dure auto's en de kleur erva
 
 
 ## De Applicatie
-In de aplicatie kan je een artikel vinden die te maken heeft met de auto in de stad, ik heb gekozen om het te doen over de kleuren van de auto's die worden verkocht per jaar. Hier onder vind je een voorbeeld van de barchart die ik heb gemaakt.
+In de applicatie kan je een artikel vinden die te maken heeft met de auto in de stad, ik heb gekozen om het te doen over de kleuren van de auto's die worden verkocht per jaar. Hier onder vind je een voorbeeld van de barchart die ik heb gemaakt.
 
 <a href="https://ibb.co/zFFd94s"><img src="https://i.ibb.co/8bbkv7M/vis.jpg" alt="vis" border="0"></a>
 
