@@ -130,10 +130,6 @@ export default {
       });
     // If less group in the new dataset, I delete the ones not in use anymore
     u.exit().remove();
-  },
-  computed() {
-    console.log("Computed chart");
-    console.log(this);
   }
 };
 </script>
