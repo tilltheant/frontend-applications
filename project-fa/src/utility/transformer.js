@@ -51,11 +51,6 @@ export function count(array) {
   return yearlyData;
 }
 
-//hele dataset filteren en in een array zetten
-export function filterenhelearray(data) {
-  return data.map(uitkomst => uitkomst);
-}
-
 //sorteren op jaar, door de strings naar numbers te veranderen || samen met gijs gemaakt.
 export function sortByYear(a, b) {
   const yearA = Number(a.year);

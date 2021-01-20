@@ -26,7 +26,7 @@ export default {
   //de visualisatie maken met gekregen data
   mounted() {
     let data = this.chartData.data;
-    console.log(this.chartData.data);
+    console.log('mounted',this.chartData.data);
     this.svgElement = d3.select("#d3-chart");
     // set the dimensions and margins of the graph
     const margin = {
@@ -130,10 +130,6 @@ export default {
       });
     // If less group in the new dataset, I delete the ones not in use anymore
     u.exit().remove();
-  },
-  computed() {
-    console.log("Computed chart");
-    console.log(this);
   }
 };
 </script>

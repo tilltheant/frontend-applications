@@ -2,14 +2,15 @@
   <div class="line2"></div>
   <div class="btnclick">
     <div class="">
-      <button v-on:click="update">2017</button>
-      <button v-on:click="update2">2018</button>
-      <button v-on:click="update3">2019</button>
+      <button v-on:click="updateYear('2017')">2017</button>
+      <button v-on:click="updateYear('2018')">2018</button>
+      <button v-on:click="updateYear('2019')">2019</button>
     </div>
     <img class="worldpic" src="../assets/logo.svg" />
   </div>
 
   <Chart v-if="chartData" :chartData="chartData" />
+  <h2> {{currentYear}}</h2>
 </template>
 
 <script>
@@ -24,31 +25,31 @@ export default {
   props: ["data"],
   data() {
     return {
-      chartData: null
+      currentYear: null,
+      RDWdata: null,
     };
   },
-  mounted() {
-    console.log("Mounted main");
+  created() {
     this.fetchdata();
+    console.log("data is ingeladen");
   },
-  //functies die worden gebruikt om de data opte halen of om het aan te passen in de D3 vis
+  computed: {
+    chartData: function () {
+      if(!this.RDWdata || !this.currentYear ) {
+        return null;
+      }
+      
+      return this.RDWdata.find(item => item.year === this.currentYear);
+    }
+  },
+  // functies die worden gebruikt om de data opte halen of om het aan te passen in de D3 vis
   methods: {
     async fetchdata() {
-      let data = await getData();
-      this.chartData = data[72];
+      this.RDWdata = await getData();
+      this.currentYear = "2018";
     },
-    update: async function() {
-      let data = await getData();
-      this.chartData = data[70];
-      console.log(this.chartData);
-    },
-    update2: async function() {
-      let data = await getData();
-      this.chartData = data[74];
-    },
-    update3: async function() {
-      let data = await getData();
-      this.chartData = data[75];
+    updateYear: function(year) {
+      this.currentYear = year;
     }
   }
 };
