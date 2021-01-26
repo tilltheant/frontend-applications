@@ -26,7 +26,7 @@ export default {
   //de visualisatie maken met gekregen data
   mounted() {
     let data = this.chartData.data;
-    console.log('mounted',this.chartData.data);
+    console.log("mounted");
     this.svgElement = d3.select("#d3-chart");
     // set the dimensions and margins of the graph
     const margin = {
@@ -109,8 +109,6 @@ export default {
   //updaten van de data die via een onclick wordt meegegeven
   updated() {
     console.log("Updated chart");
-    console.log(this.chartData);
-    console.log(this.svgElement);
     // Create the u variable
     let u = this.svgElement.selectAll("rect").data(this.chartData.data);
     u.enter()
