@@ -10,7 +10,7 @@
   </div>
 
   <Chart v-if="chartData" :chartData="chartData" />
-  <h2> {{currentYear}}</h2>
+  <h2>{{ currentYear }}</h2>
 </template>
 
 <script>
@@ -26,28 +26,31 @@ export default {
   data() {
     return {
       currentYear: null,
-      RDWdata: null,
+      RDWdata: null
     };
   },
+  // lifecycle hook waarmee ik de data voordat de DOM is aangemaakt kan ophalen en plaatsen in een variabele
   created() {
     this.fetchdata();
     console.log("data is ingeladen");
   },
   computed: {
-    chartData: function () {
-      if(!this.RDWdata || !this.currentYear ) {
+    // Watcher die kijkt naar veranderingen in de data, hij returned het juiste jaar die gelijk staat aan currentYear
+    chartData: function() {
+      if ( !this.RDWdata || !this.currentYear ) {
         return null;
       }
-      
       return this.RDWdata.find(item => item.year === this.currentYear);
     }
   },
   // functies die worden gebruikt om de data opte halen of om het aan te passen in de D3 vis
   methods: {
+    //Data async ophale en jaartal klaarzetten voor eerste visualisatie
     async fetchdata() {
       this.RDWdata = await getData();
       this.currentYear = "2018";
     },
+    //veranderen van het jaartal met een button die het jaar meegeeft
     updateYear: function(year) {
       this.currentYear = year;
     }

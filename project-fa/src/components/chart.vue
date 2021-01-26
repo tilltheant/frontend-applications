@@ -106,7 +106,7 @@ export default {
       .style("font-weight", "600")
       .text("Meest verkochte auto's per kleur in Nederland");
   },
-  //updaten van de data die via een onclick wordt meegegeven
+  //updaten van de data 
   updated() {
     console.log("Updated chart");
     // Create the u variable
