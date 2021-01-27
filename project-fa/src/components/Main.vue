@@ -35,9 +35,10 @@ export default {
     console.log("data is ingeladen");
   },
   computed: {
-    // Watcher die kijkt naar veranderingen in de data, hij returned het juiste jaar die gelijk staat aan currentYear
+    //Met een vriend samen gemaakt.
+    //Watcher die kijkt naar veranderingen in de data, hij returned het juiste jaar die gelijk staat aan currentYear
     chartData: function() {
-      if ( !this.RDWdata || !this.currentYear ) {
+      if (!this.RDWdata || !this.currentYear) {
         return null;
       }
       return this.RDWdata.find(item => item.year === this.currentYear);
