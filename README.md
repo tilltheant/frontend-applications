@@ -26,3 +26,24 @@ In de applicatie kan je een artikel vinden die te maken heeft met de auto in de 
 Je kan navigeren door de barchart met de drie zwarte knoppen erboven, de barchart zal zich automatisch aanpassen eraan. op de foto hierover kan je zien welke knoppen.
 <br/>
 <a href="https://ibb.co/vLv3RBG"><img src="https://i.ibb.co/RQ43dSm/vis2.jpg" alt="vis2" border="0"></a>
+
+
+## Project setup
+
+```
+npm install
+Compiles and hot-reloads for development
+```
+```
+npm run serve
+Compiles and minifies for production
+```
+```
+npm run build
+Lints and fixes files
+```
+```
+npm run lint
+Customize configuration
+```
+
